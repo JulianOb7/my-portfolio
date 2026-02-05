@@ -3,6 +3,7 @@ import Projects from "./sections/Projects";
 import { motion } from "framer-motion";
 import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
 
 export default function App() {
   return (
@@ -13,8 +14,7 @@ export default function App() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-6xl font-bold tracking-tighter text-white"
+            className="text-8xl font-bold tracking-tighter text-white"
           >
             Gino Sanchez
           </motion.h1>
@@ -22,7 +22,7 @@ export default function App() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ delay: 0.1 }}
             className="text-3xl text-zinc-400 font-medium tracking-tight"
           >
             Software Developer
@@ -31,13 +31,16 @@ export default function App() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-zinc-500 text-lg max-w-md mt-4"
+            transition={{ delay: 0.2 }}
+            className="text-zinc-500 text-lg max-w-2xl mt-4 leading-relaxed"
           >
-            Building digital products, brands, and experience.
+            Systems Engineer specializing as a Fullstack Developer with over 3
+            years of experience crafting robust and scalable digital solutions.
           </motion.p>
         </section>
 
+        {/* Nuevo orden solicitado */}
+        <Experience />
         <Projects />
         <Skills />
         <Contact />

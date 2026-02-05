@@ -1,33 +1,73 @@
 import { motion } from "framer-motion";
 
 const projects = [
-  { title: "E-commerce App", tech: "React + Tailwind", link: "#" },
-  { title: "Social Dashboard", tech: "TypeScript + Vite", link: "#" },
-  { title: "Portfolio V4", tech: "Framer Motion", link: "#" },
+  {
+    title: "notes",
+    subtitle: "FULLSTACK",
+    description:
+      "Aplicación de gestión y organización de tareas y notas. Permite crear carpetas y notas personalizadas para organizarte de manera eficiente.",
+    tech: ["React", "Java", "Spring Boot", "Spring Security", "MySQL"],
+    image: "/organizer.png",
+  },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="mt-32 pb-20">
-      <h3 className="text-zinc-500 mb-8 uppercase tracking-widest text-sm">
+      <h3 className="text-zinc-500 mb-12 uppercase tracking-widest text-sm">
         Selected Work
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="flex flex-col gap-24">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl hover:bg-zinc-800/50 transition-colors cursor-pointer"
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            <span className="text-xs text-zinc-500 font-mono">
-              {project.tech}
-            </span>
-            <h4 className="text-2xl font-semibold mt-2 group-hover:translate-x-2 transition-transform italic">
-              {project.title} →
-            </h4>
+            <div className="order-2 lg:order-1">
+              <span className="text-emerald-400 font-mono text-sm tracking-[0.2em] font-bold">
+                {project.subtitle}
+              </span>
+              <h4 className="text-5xl font-bold mt-3 mb-6 text-white italic tracking-tighter">
+                {project.title}
+              </h4>
+              <p className="text-zinc-400 text-xl mb-8 leading-relaxed max-w-xl">
+                {project.description}
+              </p>
+
+              <div className="flex gap-4 mb-10">
+                <button className="bg-zinc-800/80 hover:bg-zinc-700 px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2 border border-zinc-700">
+                  GitHub Frontend
+                </button>
+                <button className="bg-zinc-800/80 hover:bg-zinc-700 px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2 border border-zinc-700">
+                  GitHub Backend
+                </button>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                {project.tech.map((t, i) => (
+                  <span
+                    key={i}
+                    className="text-xs font-medium bg-zinc-900 text-zinc-400 px-4 py-1.5 rounded-full border border-zinc-800"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2 group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="relative rounded-2xl border border-zinc-800 shadow-2xl w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+            </div>
           </motion.div>
         ))}
       </div>
