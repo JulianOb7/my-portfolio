@@ -1,21 +1,41 @@
 import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiSpringboot,
+  SiSpringsecurity,
+  SiMysql,
+  SiDocker,
+  SiOpenjdk,
+} from "react-icons/si";
 
 const projects = [
   {
-    title: "notes",
+    title: "Note Creator",
     subtitle: "FULLSTACK",
     description:
-      "Aplicación de gestión y organización de tareas y notas. Permite crear carpetas y notas personalizadas para organizarte de manera eficiente.",
-    tech: ["React", "Java", "Spring Boot", "Spring Security", "MySQL"],
+      "A comprehensive task and note management application designed for optimal productivity. It features a robust system for creating custom folders and personalized notes with a focus on seamless user experience.",
+    tech: [
+      { name: "React", icon: <SiReact />, color: "text-[#61DAFB]" },
+      { name: "Java", icon: <SiOpenjdk />, color: "text-[#ED8B00]" },
+      { name: "Spring Boot", icon: <SiSpringboot />, color: "text-[#6DB33F]" },
+      {
+        name: "Spring Security",
+        icon: <SiSpringsecurity />,
+        color: "text-[#6DB33F]",
+      },
+      { name: "MySQL", icon: <SiMysql />, color: "text-[#4479A1]" },
+      { name: "Docker", icon: <SiDocker />, color: "text-[#2496ED]" },
+    ],
     image: "/organizer.png",
+    github: "https://github.com/tu-usuario/tu-repo",
   },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="mt-32 pb-20">
-      <h3 className="text-zinc-500 mb-12 uppercase tracking-widest text-sm">
-        Selected Work
+      <h3 className="text-white mb-12 uppercase tracking-[0.3em] text-2xl font-bold">
+        Projects
       </h3>
 
       <div className="flex flex-col gap-24">
@@ -40,22 +60,25 @@ export default function Projects() {
               </p>
 
               <div className="flex gap-4 mb-10">
-                <button className="bg-zinc-800/80 hover:bg-zinc-700 px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2 border border-zinc-700">
-                  GitHub Frontend
-                </button>
-                <button className="bg-zinc-800/80 hover:bg-zinc-700 px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2 border border-zinc-700">
-                  GitHub Backend
-                </button>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black hover:bg-zinc-200 px-8 py-3 rounded-full text-sm font-bold transition flex items-center gap-2"
+                >
+                  View Project on GitHub
+                </a>
               </div>
 
               <div className="flex flex-wrap gap-3">
                 {project.tech.map((t, i) => (
-                  <span
+                  <div
                     key={i}
-                    className="text-xs font-medium bg-zinc-900 text-zinc-400 px-4 py-1.5 rounded-full border border-zinc-800"
+                    className="flex items-center gap-2 text-xs font-medium bg-zinc-900 text-zinc-400 px-3 py-1.5 rounded-full border border-zinc-800 hover:border-emerald-500/50 transition-colors"
                   >
-                    {t}
-                  </span>
+                    <span className={`text-lg ${t.color}`}>{t.icon}</span>
+                    <span>{t.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
