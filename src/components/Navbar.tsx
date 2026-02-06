@@ -9,8 +9,8 @@ export default function Navbar() {
         <a href="#about" className="hover:text-white transition">
           About
         </a>
-        <a href="#contact" className="hover:text-white transition">
-          Contact
+        <a href="#contact" className="hover:text-emerald-400 transition-colors">
+          SAY HELLO
         </a>
       </div>
     </nav>
